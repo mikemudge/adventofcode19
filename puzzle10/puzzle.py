@@ -52,7 +52,7 @@ for s in satellites:
     dx = s.x - best.x
     dy = s.y - best.y
     ang = math.atan2(dy, dx)
-    # We want to start at "up" which is 1/0
+    # We want to start at "up" which is -1/0
     if ang < math.atan2(-1, 0):
         ang += math.pi * 2
     if not ang in radialSats:

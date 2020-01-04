@@ -153,12 +153,14 @@ def printBoard(visited):
     for y in visited:
         v = range(40)
         for x in v:
-            v[x] = "."
+            v[x] = " "
             if x in visited[y]:
                 if visited[y][x] == 1:
-                    v[x] = "#"
+                    v[x] = "|"
+                    if x == 0:
+                        v[x] = "-"
                 if visited[y][x] == 2:
-                    v[x] = "-"
+                    v[x] = "#"
                 if visited[y][x] == 3:
                     v[x] = "_"
                 if visited[y][x] == 4:
@@ -236,7 +238,8 @@ while not c.complete:
         printBoard(visited)
         timer+=1
         if timer > 40 * 24:
-            time.sleep(0.1)
+            sys.stdout.flush()
+            time.sleep(0.05)
     if x == -1 and y == 0:
         score = t
         continue
